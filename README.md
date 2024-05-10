@@ -2,12 +2,12 @@
 SIMULATION AND IMPLEMENTATION OF SEQUENTIAL LOGIC CIRCUITS
 
 AIM: 
- To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Xilinx ISE.
+To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2023.
+
 
 APPARATUS REQUIRED:
+To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2023.
 
-Xilinx 14.7
-Spartan6 FPGA
 
 **LOGIC DIAGRAM**
 
@@ -37,25 +37,280 @@ COUNTER
 
   
 PROCEDURE:
-STEP:1  Start  the Xilinx navigator, Select and Name the New project.
-STEP:2  Select the device family, device, package and speed.       
-STEP:3  Select new source in the New Project and select Verilog Module as the Source type.                       
-STEP:4  Type the File Name and Click Next and then finish button. Type the code and save it.
-STEP:5  Select the Behavioral Simulation in the Source Window and click the check syntax.                       
-STEP:6  Click the simulation to simulate the program and  give the inputs and verify the outputs as per the truth table.               
-STEP:7  Select the Implementation in the Sources Window and select the required file in the Processes Window.
-STEP:8  Select Check Syntax from the Synthesize  XST Process. Double Click in the  FloorplanArea/IO/Logic-Post Synthesis process in the User Constraints process group. UCF(User constraint File) is obtained. 
-STEP:9  In the Design Object List Window, enter the pin location for each pin in the Loc column Select save from the File menu.
-STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here.
-STEP:11  On the board, by giving required input, the LEDs starts to glow light, indicating the output.
+STEP:1 Start the vivado software, Select and Name the New project.
+
+STEP:2 Select the device family, device, package and speed.
+
+STEP:3 Select new source in the New Project and select Verilog Module as the Source type.
+
+STEP:4 Type the File Name and module name and Click Next and then finish button. Type the code and save it.
+
+STEP:5 Select the run simulation adn then run Behavioral Simulation in the Source Window and click the check syntax.
+
+STEP:6 Click the simulation to simulate the program and give the inputs and verify the outputs as per the truth table.
+
+STEP:7 compare the output with truth table.
+
 
 VERILOG CODE
+SR FLIPFLOP
 
-   <<< TYPE YOUR VERILOG CODE >>>
+module SR(clk,s,r,rst,q );
+
+input s,r,clk,rst;
+
+output reg q;
+
+always@(posedge clk)
+
+begin
+
+if(rst==1)
+
+q=1'b0;
+
+else
+
+begin
+
+case({s,r})
+
+2'b00: q=q;
+
+2'b01:q=1'b0;
+
+2'b10:q=1'b1;
+
+2'b11:q=1'bx;
+
+endcase
+
+end
+
+end
+
+endmodule
+
+JK FLIPFLOP
+
+module jk(j,k,clk,rst,Q);
+
+input j,k,clk,rst;
+
+output reg Q;
+
+always @(posedge clk)
+
+begin
+
+if(rst==1)
+
+Q=0;
+
+else
+
+begin
+
+case({j,k})
+
+2'b00:Q=Q;
+
+2'b01:Q=0;
+
+2'b10:Q=1;
+
+2'b11:Q=~Q;
+
+endcase
+
+end
+
+end
+
+endmodule
+
+T FLIPFLOP
+
+module tff(t,clk,rst,Q);
+
+input t,clk,rst;
+
+output reg Q;
+
+always @(posedge clk)
+
+begin
+
+if(rst==1)
+
+Q=1'b0;
+
+else if(t==0)
+
+Q=Q;
+
+else
+
+Q=~Q;
+
+end
+
+endmodule
+
+D FLIPFLOP
+
+module dff(d,clk,rst,Q);
+
+input d,clk,rst;
+
+output reg Q;
+
+always @(posedge clk)
+
+begin
+
+if(rst==1)
+
+Q=1'b0;
+
+else
+
+Q=d;
+
+end
+
+endmodule
+
+MOD 10 COUNER
+
+module updown(clk,rst,out);
+
+input clk,rst;
+
+output reg[3:0]out;
+
+always@(posedge clk)
+
+begin
+
+if(rst==1 | out==4'b1001)
+
+out=4'b0000;
+
+else
+
+out=out+1'b1;
+
+end
+
+endmodule
+
+4bit UPDOWN COUNER
+
+module updown(clk,rst,updown,out);
+
+input clk,rst,updown;
+
+output reg[3:0]out;
+
+always@(posedge clk)
+
+begin
+
+if(rst==1)
+
+out=4'b0000;
+
+else
+
+if(updaown==1)
+
+out=out+1'b1;
+
+else
+
+out=out-1'b1;
+
+end
+
+endmodule
+
+RIPPLE CARRY COUNER
+
+module ripplecounter(clk,rst,q);
+
+input clk,rst;
+
+output [3:0]q;
+
+tff tff1(q[0],clk,rst);
+
+tff tff2(q[1],q[0],rst);
+
+tff tff3(q[2],q[1],rst);
+
+tff tff4(q[3],q[2],rst);
+
+endmodule
+
+module tff(q,clk,rst);
+
+input clk,rst;
+
+output q;
+
+wire d;
+
+dff df1(q,d,clk,rst);
+
+not n1(d,q);
+
+endmodule
+
+module dff(q,d,clk,rst);
+
+input d,clk,rst;
+
+output q;
+
+reg q;
+
+always@(posedge clk or posedge rst)
+
+begin
+
+if(rst)
+
+q=1'b10;
+
+else
+
+q=d;
+
+end
+
+endmodule
+
+
+
 
 OUTPUT WAVEFORM
- <<< PASTE YOUR OUTPUT WAVEFORM >>>
+ SR FLIPFLOP
+ ![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/467e0210-b948-4a7a-bce2-126b9c76eadc)
+jk FLIPFLOP
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/9a258192-2ba3-4874-a3ad-7d09f63fc232)
+T FLIPFLOP
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/742ef8e6-058d-472b-ae7e-ed352c093195)
+D FLIPFLOP
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/33a6f7f9-b435-416a-b430-9e5ae876211f)
+MOD 10 COUNER
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/f1c29577-1107-45a8-8e98-17489151e728)
+4bit UPDOWN COUNTER
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/56e7efeb-94b3-40da-b085-0d0487146dbd)
+RIPPLE CARRY COUNTER
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/36aa116e-2138-4a09-a17c-1afd46c80858)
+
 
 RESULT
-
+Thus the simulation and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2023. was successfully exectued and verified.
 
