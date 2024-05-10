@@ -6,8 +6,8 @@ To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2
 
 
 APPARATUS REQUIRED:
-To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2023.
 
+vivado 2023.2
 
 **LOGIC DIAGRAM**
 
@@ -52,9 +52,9 @@ STEP:6 Click the simulation to simulate the program and give the inputs and veri
 STEP:7 compare the output with truth table.
 
 
-VERILOG CODE
+**VERILOG CODE**
 
-SR FLIPFLOP
+**SR FLIPFLOP**
 
 module SR(clk,s,r,rst,q );
 
