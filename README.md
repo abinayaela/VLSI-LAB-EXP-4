@@ -53,6 +53,7 @@ STEP:7 compare the output with truth table.
 
 
 VERILOG CODE
+
 SR FLIPFLOP
 
 module SR(clk,s,r,rst,q );
