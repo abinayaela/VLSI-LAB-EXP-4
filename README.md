@@ -92,7 +92,7 @@ end
 
 endmodule
 
-JK FLIPFLOP
+**JK FLIPFLOP**
 
 module jk(j,k,clk,rst,Q);
 
@@ -130,7 +130,7 @@ end
 
 endmodule
 
-T FLIPFLOP
+**T FLIPFLOP**
 
 module tff(t,clk,rst,Q);
 
@@ -158,7 +158,7 @@ end
 
 endmodule
 
-D FLIPFLOP
+**D FLIPFLOP**
 
 module dff(d,clk,rst,Q);
 
@@ -182,7 +182,7 @@ end
 
 endmodule
 
-MOD 10 COUNER
+**MOD 10 COUNER**
 
 module updown(clk,rst,out);
 
@@ -206,7 +206,7 @@ end
 
 endmodule
 
-4bit UPDOWN COUNER
+**4bit UPDOWN COUNER**
 
 module updown(clk,rst,updown,out);
 
@@ -236,7 +236,7 @@ end
 
 endmodule
 
-RIPPLE CARRY COUNER
+**RIPPLE CARRY COUNER**
 
 module ripplecounter(clk,rst,q);
 
@@ -295,7 +295,8 @@ endmodule
 
 
 
-OUTPUT WAVEFORM
+**OUTPUT WAVEFORM**
+
  SR FLIPFLOP
  ![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/467e0210-b948-4a7a-bce2-126b9c76eadc)
 jk FLIPFLOP
