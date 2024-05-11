@@ -1,11 +1,12 @@
 # VLSI-LAB-EXP-4
 SIMULATION AND IMPLEMENTATION OF SEQUENTIAL LOGIC CIRCUITS
 
-AIM: 
+**AIM**
+
 To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2023.
 
 
-APPARATUS REQUIRED:
+**APPARATUS REQUIRED**
 
 vivado 2023.2
 
@@ -36,7 +37,8 @@ COUNTER
 
 
   
-PROCEDURE:
+**PROCEDURE**
+
 STEP:1 Start the vivado software, Select and Name the New project.
 
 STEP:2 Select the device family, device, package and speed.
