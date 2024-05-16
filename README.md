@@ -1,43 +1,15 @@
 # VLSI-LAB-EXP-4
 SIMULATION AND IMPLEMENTATION OF SEQUENTIAL LOGIC CIRCUITS
 
-**AIM**
+## AIM
 
 To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2023.
 
 
-**APPARATUS REQUIRED**
+## APPARATUS REQUIRED
 
 vivado 2023.2
-
-**LOGIC DIAGRAM**
-
-SR FLIPFLOP
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/77fb7f38-5649-4778-a987-8468df9ea3c3)
-
-
-JK FLIPFLOP
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/1510e030-4ddc-42b1-88ce-d00f6f0dc7e6)
-
-T FLIPFLOP
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/7a020379-efb1-4104-85ee-439d660baa08)
-
-
-D FLIPFLOP
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/dda843c5-f0a0-4b51-93a2-eaa4b7fa8aa0)
-
-
-COUNTER
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/a1fc5f68-aafb-49a1-93d2-779529f525fa)
-
-
-  
-**PROCEDURE**
+## PROCEDURE
 
 STEP:1 Start the vivado software, Select and Name the New project.
 
@@ -53,11 +25,12 @@ STEP:6 Click the simulation to simulate the program and give the inputs and veri
 
 STEP:7 compare the output with truth table.
 
+## LOGIC DIAGRAM
 
-**VERILOG CODE**
+SR FLIPFLOP
 
-**SR FLIPFLOP**
-
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/77fb7f38-5649-4778-a987-8468df9ea3c3)
+## VERILOG CODE
 module SR(clk,s,r,rst,q );
 
 input s,r,clk,rst;
@@ -93,9 +66,13 @@ end
 end
 
 endmodule
+## OUTPUT
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/ddd9ed17-37dd-478e-8241-f58b838c615a)
 
-**JK FLIPFLOP**
+JK FLIPFLOP
 
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/1510e030-4ddc-42b1-88ce-d00f6f0dc7e6)
+## VERILOG CODE
 module jk(j,k,clk,rst,Q);
 
 input j,k,clk,rst;
@@ -131,9 +108,14 @@ end
 end
 
 endmodule
+## OUTPUT
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/970b020a-d796-436a-92c3-d148c22d1afd)
 
-**T FLIPFLOP**
 
+T FLIPFLOP
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/7a020379-efb1-4104-85ee-439d660baa08)
+## VERILOG CODE
 module tff(t,clk,rst,Q);
 
 input t,clk,rst;
@@ -159,9 +141,14 @@ Q=~Q;
 end
 
 endmodule
+## OUTPUT
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/483ae144-b786-41ff-bc08-759148715d72)
 
-**D FLIPFLOP**
 
+D FLIPFLOP
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/dda843c5-f0a0-4b51-93a2-eaa4b7fa8aa0)
+## VERILOG CODE
 module dff(d,clk,rst,Q);
 
 input d,clk,rst;
@@ -183,9 +170,14 @@ Q=d;
 end
 
 endmodule
+## OUTPUT
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/bd96751e-c1f1-408b-a9a9-a34c78255849)
 
-**MOD 10 COUNER**
 
+COUNTER
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-4/assets/6987778/a1fc5f68-aafb-49a1-93d2-779529f525fa)
+## MOD 10
 module updown(clk,rst,out);
 
 input clk,rst;
@@ -207,9 +199,9 @@ out=out+1'b1;
 end
 
 endmodule
-
-**4bit UPDOWN COUNER**
-
+## OUTPUT
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/737f3e47-f65d-4d08-9746-2c0e678619af)
+## 4 BIT UPDOWN
 module updown(clk,rst,updown,out);
 
 input clk,rst,updown;
@@ -237,9 +229,9 @@ out=out-1'b1;
 end
 
 endmodule
-
-**RIPPLE CARRY COUNER**
-
+## OUTPUT
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/488a90fc-aaa6-4db8-9042-f757488b43c2)
+## RIPPLE CARRY
 module ripplecounter(clk,rst,q);
 
 input clk,rst;
@@ -293,28 +285,9 @@ q=d;
 end
 
 endmodule
+## OUTPUT
+![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/d9c643bb-53bc-410e-81be-35d8d7bd2126)
 
-
-
-
-**OUTPUT WAVEFORM**
-
- SR FLIPFLOP
- ![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/467e0210-b948-4a7a-bce2-126b9c76eadc)
-jk FLIPFLOP
-![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/9a258192-2ba3-4874-a3ad-7d09f63fc232)
-T FLIPFLOP
-![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/742ef8e6-058d-472b-ae7e-ed352c093195)
-D FLIPFLOP
-![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/33a6f7f9-b435-416a-b430-9e5ae876211f)
-MOD 10 COUNER
-![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/f1c29577-1107-45a8-8e98-17489151e728)
-4bit UPDOWN COUNTER
-![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/56e7efeb-94b3-40da-b085-0d0487146dbd)
-RIPPLE CARRY COUNTER
-![image](https://github.com/abinayaela/VLSI-LAB-EXP-4/assets/164911294/36aa116e-2138-4a09-a17c-1afd46c80858)
-
-
-RESULT
+## RESULT
 Thus the simulation and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using Vivado 2023. was successfully exectued and verified.
 
